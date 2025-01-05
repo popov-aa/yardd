@@ -1,0 +1,37 @@
+services:
+  yardd:
+    image: yardd:latest
+    restart: unless-stopped
+    volumes:
+      - ./yards_data:/data
+    ports:
+      - 28015:28015/udp
+      - 28016:28016/tcp
+      - 28017:28017/udp
+      - 28082:28082/tcp
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+       - SERVER_HOSTNAME="My server"
+       - SERVER_DESCRIPTION="Just server description."
+       - SERVER_TAGS="monthly,vanilla,EU"
+       - SERVER_HEADER_IMAGE="https://some.url"
+       - SERVER_LOGO_IMAGE="https://some.url"
+       - SERVER_URL="https://some.url"
+       - SERVER_IP=0.0.0.0
+       - SERVER_PORT=28015
+       - SERVER_QUERY_PORT=28017
+       - APP_PORT=28082
+       - RCON_IP=0.0.0.0
+       - RCON_PORT=28016
+       - RCON_WEB=1
+       - SERVER_TICK_RATE=10
+       - SERVER_IDENTITY=my_server_identity
+       - SERVER_SEED=223543185
+       - SERVER_MAX_PLAYERS=100
+       - SERVER_WORLD_SIZE=4250
+       - SERVER_SAVE_INTERVAL=600
+       - SERVER_LEVEL=Procedural Map
+       - SERVER_SWNET=1
+       - RCON_PASSWORD=your_rcon_password
+       - ADDITIONAL_PARAMS=""
