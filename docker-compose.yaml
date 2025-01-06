@@ -3,7 +3,7 @@ services:
     image: yardd:latest
     restart: unless-stopped
     volumes:
-      - ./yards_data:/data
+      - ./yardd_data:/data
     ports:
       - 28015:28015/udp
       - 28016:28016/tcp
@@ -12,12 +12,13 @@ services:
     devices:
       - /dev/dri:/dev/dri
     environment:
-       - SERVER_HOSTNAME="My server"
-       - SERVER_DESCRIPTION="Just server description."
-       - SERVER_TAGS="monthly,vanilla,EU"
-       - SERVER_HEADER_IMAGE="https://some.url"
-       - SERVER_LOGO_IMAGE="https://some.url"
-       - SERVER_URL="https://some.url"
+       - SERVER_HOSTNAME=My server
+       - SERVER_DESCRIPTION=Just server description.
+       - SERVER_MOTD=Hello. Nice to see you!
+       - SERVER_TAGS=monthly,vanilla,EU
+       - SERVER_HEADER_IMAGE=https://some.url
+       - SERVER_LOGO_IMAGE=https://some.url
+       - SERVER_URL=https://some.url
        - SERVER_IP=0.0.0.0
        - SERVER_PORT=28015
        - SERVER_QUERY_PORT=28017
